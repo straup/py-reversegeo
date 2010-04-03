@@ -11,7 +11,7 @@ You can run it like this:
 	import reversegeo
 
 	apikey='YER_FLICKR_APIKEY'
-	cache='/path/to/db_cache.sql'
+	cache='/path/to/woeid_cache.db'
 
 	lat=37.765068
 	lon=-122.419608
