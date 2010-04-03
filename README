@@ -1,0 +1,30 @@
+This is a simple wrapper class for calling the Flickr reverse geocoder and
+returning a Where On Earth (WOE) ID.
+
+(Some day it may support services other than Flickr.)
+
+Additionally, it can be configured to use a SQLite database to cache those
+results.
+
+You can run it like this:
+
+	import reversegeo
+
+	apikey='YER_FLICKR_APIKEY'
+	cache='/path/to/db_cache.sql'
+
+	lat=37.765068
+	lon=-122.419608
+
+	geo = reversegeo.woeid(flickr_apikey=apikey, flickr_cache_db=cache)
+	woeid = geo.reverse_geocode(lat, lon)
+
+	# DEBUG:root:reverse geocode 37.765068,-122.419608
+	# DEBUG:root:return from cache for key 9q8yy6bv2quj
+	# 23512048
+
+The cache DB should look like this:
+
+	CREATE TABLE reversegeo (geohash TEXT, woeid INTEGER);
+	CREATE INDEX by_geohash ON reversegeo (geohash);
+	CREATE INDEX by_woeid ON reversegeo (woeid);
