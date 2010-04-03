@@ -28,3 +28,12 @@ The cache DB should look like this:
 	CREATE TABLE reversegeo (geohash TEXT, woeid INTEGER);
 	CREATE INDEX by_geohash ON reversegeo (geohash);
 	CREATE INDEX by_woeid ON reversegeo (woeid);
+
+The following libraries are required:
+
+http://pypi.python.org/pypi/Flickr.API/
+
+http://pypi.python.org/pypi/Geohash/
+
+http://pypi.python.org/pypi/simplejson (if you're not running a verion of Python
+that already has the json library: http://docs.python.org/library/json.html)
