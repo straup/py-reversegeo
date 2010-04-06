@@ -91,7 +91,7 @@ class woeid:
             db.execute("""INSERT INTO reversegeo (geohash, woeid) VALUES(?,?)""", (geohash, woeid))
             self.cache.commit()
         except Exception, e:
-            logging.debug("failed to store cache data for %s: %s" % (key, e))
+            logging.debug("failed to store cache data for %s: %s" % (geohash, e))
             return False
 
         return True
